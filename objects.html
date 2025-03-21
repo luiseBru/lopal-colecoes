@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <h1>Cadastro de Alunos</h1>
+    <input type="text" id="nome" placeholder="Nome do aluno">
+    <input type="number" id="idade" placeholder="Idade">
+    <input type="text" id="sesi" placeholder="Escola (SESI)">
+    <select id="pet">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="remover()">Remover Último</button>
+
+    
+    <div id="lista"></div>
+
+    <script>
+        let alunos = [];
+
+        function cadastrar() {
+            let aluno = {
+                nome: document.getElementById('nome').value,
+                idade: document.getElementById('idade').value,
+                sesi: document.getElementById('sesi').value,
+                temPet: document.getElementById('pet').value === 'sim'
+            };
+            alunos.push(aluno);
+            mostrar();
+        }
+
+        function remover() {
+            alunos.pop();
+            mostrar();
+        }
+
+        function mostrar() {
+            document.getElementById('lista').innerHTML = alunos.map(a => 
+                `${a.nome}, ${a.idade} anos, ${a.sesi}, ${a.temPet ? 'Tem pet' : 'Não tem pet'}<br>`
+            ).join('');
+        }
+
+      
+        alunosExemplo.forEach(a => {
+            alunos.push(a);  
+        });
+        mostrar();
+    </script>
+</body>
+</html>
+        
