@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arrays</title>
 </head>
+
 <body>
+    <button type="button" onclick="adicionarAlunos()">Adicionar Alunos</button>
+    <button type="button" onclick="removerUltimoAluno()">Remover Alunos</button>
+    
+    <br>
+    <output></output>
     <script>
+
         //const aluno1 = "Aline";
         //const aluno2 = "Arthur";
         //const aluno3 = "Barbara";
-        
+
 
         //document.write(aluno1 + "<br>");
         //document.write(aluno2 + "<br>");
         //document.write(aluno3 + "<br>");
-        
+
         // Arrays
         //    alunos = [1° nome, 2° nome, 3°...]
         //    alunos = [   0  , 1    ,   2   ,     3   ....]
@@ -26,21 +34,86 @@
         //alunos.push("Henrique");
 
 
-            //for (let indice = 0; indice < alunos.length; indice++){
-            //    document.write(alunos[indice] + "<br>");
+        //for (let indice = 0; indice < alunos.length; indice++){
+        //    document.write(alunos[indice] + "<br>");
 
-           // }
-           const alunos = ["Aline", "Arthur", "Barbara", "Bruna Luise", "Bruna Torres", "Bruna Veloso", "Cauã", "Daniel", "Davi"];
-             for (let indice = 0; indice < alunos.length; indice++){
-               document.write(alunos[indice] + "<br>");
+        // }
 
-               let nome = prompt("Quer digitar mais nomes na sua lista? Caso não queira, clique em cancelar");
-                const
+
+
+
+        let alunos = ["Aline", "Arthur", "Barbara", "Bruna Luise", "Bruna Torres", "Bruna Veloso", "Cauã", "Daniel", "Davi"];
+
+
+        function imprimirAlunos(){
+            document.querySelector('output').innerHTML = '<h1>Lista de alunos</h1>';
+
+            for (let indice = 0; indice < alunos.length; indice++){
+            
+                document.querySelector("output").innerHTML += alunos[indice] + "<br>";
+
             }
-           
-           
+
+        }
+
+        function adicionarAlunos(){
+            let novoAluno = prompt("Digite o nome do(a) aluno(a):");
+            alunos.push(novoAluno);
+
+            opcaoUsuario = confirm('Deseja Adicionar mais um aluno?');
+
+            while(opcaoUsuario){
+                adicionarAlunos();
+            }
+
+
+            imprimirAlunos() //chama a função sempre que alunos são adicionados
+        }
+
+        imprimirAlunos(); //chama a função só no carregamento da pagina
+
+        let frutas = ['maçã, banana'];
+        console.log(frutas);
+
+        frutas.push("manão");
+        console.log(frutas);
+
+        frutas.pop();
+        console.log(frutas);
+
+        
+        function removerUltimoAluno(){
+    
+    
+}
+
+    
+
+
+    function removerUltimoAluno(){
+    alunos.pop();  
+        imprimirAlunos();
+    
+
+        }
+    {
+    if (alunos.length > 0){
+    } else{
+        alert("Não tem alunos para remover");
+        
+    }
+   
+    }
+    imprimirAlunos();
+
+
+
+
+
     </script>
-    
-    
+
+
+
 </body>
+
 </html>
